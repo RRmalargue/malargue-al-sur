@@ -51,6 +51,27 @@ body {
   line-height: 1.6;
   padding-bottom: 85px; /* Espacio para barra de navegación móvil */
   overflow-x: hidden;
+  position: relative;
+}
+
+/* Marca de agua de fondo: Silueta de Malargüe */
+body::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  height: 90vh;
+  max-width: 500px;
+  max-height: 500px;
+  background-image: url('./assets/mapa_malargue.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.04; /* Muy sutil en el fondo oscuro */
+  pointer-events: none;
+  z-index: -1;
 }
 
 /* Tipografía */

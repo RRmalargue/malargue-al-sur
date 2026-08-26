@@ -219,7 +219,18 @@ document.addEventListener("DOMContentLoaded", () => {
   
   if ('serviceWorker' in navigator && !isLocal) {
     navigator.serviceWorker.register('./sw.js')
-      .then(reg => console.log('Service Worker registrado', reg))
+      .then(reg => {
+        console.log('Service Worker registrado con éxito', reg);
+        reg.addEventListener('updatefound', () => {
+          const newWorker = reg.installing;
+          newWorker.addEventListener('statechange', () => {
+            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              console.log('Nueva versión detectada. Recargando la aplicación...');
+              window.location.reload();
+            }
+          });
+        });
+      })
       .catch(err => console.warn('Error al registrar sw', err));
   } else if ('serviceWorker' in navigator && isLocal) {
     navigator.serviceWorker.getRegistrations().then(registrations => {

@@ -30,7 +30,7 @@
   <!-- Encabezado / Brand -->
   <header class="app-header">
     <div class="brand-container">
-      <img src="./assets/logo.svg" onerror="this.src='https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=100&q=80'" alt="Malargüe al Sur Logo" class="brand-logo" id="headerLogo">
+      <img src="./assets/logo.jpg" onerror="this.src='./assets/logo.svg'" alt="Malargüe al Sur Logo" class="brand-logo" id="headerLogo">
       <div class="brand-text">
         <h1>Malargüe al Sur</h1>
         <p>Departamentos temporales</p>
@@ -650,7 +650,7 @@
               </div>
 
               <!-- Opción Local -->
-              <div class="sync-option-card">
+              <div class="sync-option-card" style="margin-bottom: 12px;">
                 <h4>Copia de Respaldo Local</h4>
                 <p class="text-sm">Descarga o importa tu archivo de reservas como respaldo local:</p>
                 <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 6px;">
@@ -662,6 +662,20 @@
                   </button>
                   <input type="file" id="import-json-file" style="display: none;" accept=".json" onchange="handleImportJSON(event)">
                 </div>
+              </div>
+
+              <!-- Control de Cambios y GitHub -->
+              <div class="sync-option-card" style="border-color: rgba(14, 165, 233, 0.3); background: rgba(14, 165, 233, 0.02);">
+                <h4 style="color: var(--accent);"><i class="fa-brands fa-github"></i> Publicar Cambios en GitHub</h4>
+                <p class="text-sm" style="margin-bottom: 8px;">Cada vez que edites fotos, textos o colores en tu computadora:</p>
+                <ol class="text-xs" style="margin-left: 14px; margin-bottom: 10px; color: var(--text-secondary); display: flex; flex-direction: column; gap: 4px;">
+                  <li>Ejecuta el archivo <strong>guardar_cambios.bat</strong> en tu PC.</li>
+                  <li>El sistema incrementará la versión de caché en <strong>sw.js</strong> y te dirá qué archivos modificaste.</li>
+                  <li>Usa el botón de abajo para ir a subir esos archivos a tu repositorio.</li>
+                </ol>
+                <a href="https://github.com" target="_blank" class="btn btn-primary btn-sm btn-block" style="text-align: center; text-decoration: none; display: block;">
+                  <i class="fa-solid fa-cloud-arrow-up"></i> Ir a Subir Cambios a GitHub
+                </a>
               </div>
             </div>
           </div>
