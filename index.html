@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Reserva tu estadía en Malargüe al Sur Departamentos. Consulta disponibilidad de alquiler diario, mira nuestras instalaciones y reserva al instante por WhatsApp.">
+  <title>Malargüe al Sur Departamentos - Reservas</title>
+  
+  <!-- Favicon y PWA -->
+  <link rel="icon" href="./assets/logo.svg" type="image/svg+xml">
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#d97706">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="./assets/logo.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome para Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Estilos Personalizados -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Encabezado / Brand -->
+  <header class="app-header">
+    <div class="brand-container">
+      <img src="./assets/logo.svg" onerror="this.src='https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=100&q=80'" alt="Malargüe al Sur Logo" class="brand-logo" id="headerLogo">
+      <div class="brand-text">
+        <h1>Malargüe al Sur</h1>
+        <p>Departamentos temporales</p>
+      </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <a href="https://www.instagram.com/malarguealsur?igsi=Yzl6MHdhcW9lZGc5" target="_blank" style="color: #e1306c; font-size: 20px; margin-right: 8px; display: inline-flex; align-items: center; justify-content: center; text-decoration: none;" title="Síguenos en Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <button id="install-pwa-btn" class="btn hidden" style="padding: 6px 12px; font-size: 11px; border-radius: 8px; margin: 0; background: linear-gradient(135deg, #10b981, #059669); color: white; display: inline-flex; height: auto;">
+        <i class="fa-solid fa-download"></i> Instalar App
+      </button>
+      <div class="status-indicator">
+        <span class="status-dot"></span>
+        <span class="status-label">Online</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main class="app-main">
+
+    <!-- SECCIÓN: INICIO (SHOWCASE) -->
+    <section id="home-section" class="tab-content active">
+      <!-- Carrusel de fotos -->
+      <div class="carousel-container">
+        <div class="carousel-track" id="carousel-track">
+          <div class="carousel-slide active">
+            <img src="./assets/depto-main.jpg" onerror="this.src='https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1200&q=80'" alt="Malargüe al Sur Departamentos">
+            <div class="slide-caption">
+              <h3>Malargüe al Sur Departamentos</h3>
+              <p>Tu hogar temporal en el sur de Mendoza. Confort y tranquilidad para tu estadía.</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <img src="./assets/depto-living.jpg" onerror="this.src='https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80'" alt="Interiores confortables">
+            <div class="slide-caption">
+              <h3>2 Habitaciones • Hasta 5 personas</h3>
+              <p>Totalmente amoblados, con todos los servicios y comodidades necesarios.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control prev" onclick="moveCarousel(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="carousel-control next" onclick="moveCarousel(1)"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="carousel-indicators" id="carousel-indicators">
+          <span class="indicator active" onclick="setCarouselSlide(0)"></span>
+          <span class="indicator" onclick="setCarouselSlide(1)"></span>
+        </div>
+      </div>
+
+      <!-- Promoción Destacada -->
+      <div class="promo-card glow-card">
+        <div class="promo-badge">ESTADÍA PROLONGADA</div>
+        <div class="promo-info">
+          <h3>Descuentos Especiales</h3>
+          <p>Alquila tu departamento por 5 días o más y accede a tarifas promocionales.</p>
+        </div>
+        <button class="btn btn-primary" onclick="switchTab('calendar-section')">
+          <i class="fa-regular fa-calendar-check"></i> Ver Disponibilidad
+        </button>
+      </div>
+
+      <!-- Especificaciones / Servicios -->
+      <h2 class="section-title">Detalles del Alojamiento</h2>
+      <p class="text-secondary text-sm" style="text-align: center; margin-top: -12px; margin-bottom: 16px;">
+        <i class="fa-solid fa-circle-info"></i> Pulsa en cualquier categoría para ver su galería de fotos completa.
+      </p>
+      
+      <div class="services-grid">
+        <!-- Habitaciones -->
+        <div class="service-card" onclick="openServiceGallery('habitaciones', 'Habitaciones')">
+          <div class="service-img-wrapper">
+            <img src="./assets/depto-hab1.jpg" onerror="this.src='https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=600&q=80'" class="service-img" alt="Habitaciones">
+          </div>
+          <div class="service-content">
+            <div class="service-header-row">
+              <div class="service-icon"><i class="fa-solid fa-bed"></i></div>
+              <h4>Habitaciones</h4>
+            </div>
+            <p>2 habitaciones equipadas. Sommiers confortables para hasta 5 huéspedes.</p>
+          </div>
+        </div>
+
+        <!-- Servicios -->
+        <div class="service-card" onclick="openServiceGallery('servicios', 'Servicios')">
+          <div class="service-img-wrapper">
+            <img src="./assets/depto-living.jpg" onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80'" class="service-img" alt="Servicios">
+          </div>
+          <div class="service-content">
+            <div class="service-header-row">
+              <div class="service-icon"><i class="fa-solid fa-bell-concierge"></i></div>
+              <h4>Servicios</h4>
+            </div>
+            <p>Calefacción, Wi-Fi de alta velocidad, TV por cable/streaming y estacionamiento.</p>
+          </div>
+        </div>
+
+        <!-- Equipamiento -->
+        <div class="service-card" onclick="openServiceGallery('equipamiento', 'Equipamiento')">
+          <div class="service-img-wrapper">
+            <img src="./assets/depto-cocina.jpg" onerror="this.src='https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=600&q=80'" class="service-img" alt="Equipamiento">
+          </div>
+          <div class="service-content">
+            <div class="service-header-row">
+              <div class="service-icon"><i class="fa-solid fa-kitchen-set"></i></div>
+              <h4>Equipamiento</h4>
+            </div>
+            <p>Cocina con horno, heladera, vajilla completa, microondas y ropa de cama.</p>
+          </div>
+        </div>
+
+        <!-- Normas de Convivencia -->
+        <div class="service-card" onclick="openRulesModal()">
+          <div class="service-img-wrapper">
+            <img src="./assets/normas.jpg" onerror="this.src='https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80'" class="service-img" alt="Normas de Convivencia">
+          </div>
+          <div class="service-content">
+            <div class="service-header-row">
+              <div class="service-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+              <h4>Normas de Convivencia</h4>
+            </div>
+            <p>Reglamento interno sobre ruidos, mascotas, horarios y cuidado general.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Normas de Convivencia Card -->
+      <div class="card" style="margin-top: 20px; text-align: center; background: rgba(217, 119, 6, 0.05); border-color: rgba(217, 119, 6, 0.2);">
+        <h3 style="color: var(--accent); margin-bottom: 8px;"><i class="fa-solid fa-circle-exclamation"></i> Reglamento Interno</h3>
+        <p class="text-secondary text-sm" style="margin-bottom: 16px;">
+          Para garantizar una estancia agradable a todos los huéspedes, lee nuestras normas de convivencia antes de registrar tu llegada.
+        </p>
+        <div style="text-align: center;">
+          <button onclick="openRulesModal()" class="btn btn-primary" style="margin: 0; width: 100%; max-width: 250px;">
+            <i class="fa-solid fa-file-invoice"></i> Ver Reglamento de la Casa
+          </button>
+        </div>
+      </div>
+
+      <!-- WiFi del Alojamiento -->
+      <div class="card" style="margin-top: 20px; text-align: center;">
+        <h3 style="color: var(--accent); margin-bottom: 8px;"><i class="fa-solid fa-wifi"></i> WiFi de los Departamentos</h3>
+        <p class="text-secondary text-sm" style="margin-bottom: 16px;">
+          ¿Ya te encuentras hospedado? Toca el botón de abajo para ver la contraseña del Wi-Fi o conectarte escaneando el código QR.
+        </p>
+        <div style="text-align: center;">
+          <button onclick="openWifiModal()" class="btn btn-outline-primary" style="margin: 0; width: 100%; max-width: 250px;">
+            <i class="fa-solid fa-key"></i> Ver Clave de WiFi
+          </button>
+        </div>
+      </div>
+
+      <!-- Instagram Card -->
+      <div class="card" style="margin-top: 20px; text-align: center; background: linear-gradient(135deg, rgba(225, 48, 108, 0.08), rgba(253, 29, 29, 0.02)); border-color: rgba(225, 48, 108, 0.25);">
+        <h3 style="color: #e1306c; margin-bottom: 8px;"><i class="fa-brands fa-instagram"></i> Síguenos en Instagram</h3>
+        <p class="text-secondary text-sm" style="margin-bottom: 16px;">
+          Descubre novedades, fotos de las instalaciones y atractivos turísticos en Malargüe en nuestra cuenta oficial.
+        </p>
+        <div style="text-align: center;">
+          <a href="https://www.instagram.com/malarguealsur?igsi=Yzl6MHdhcW9lZGc5" target="_blank" class="btn" style="margin: 0; width: 100%; max-width: 250px; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: #fff; box-shadow: 0 4px 15px rgba(225, 48, 108, 0.2);">
+            <i class="fa-brands fa-instagram"></i> @malarguealsur
+          </a>
+        </div>
+      </div>
+
+      <!-- Ubicación del Alojamiento -->
+      <div class="card" style="margin-top: 20px;">
+        <h3 style="color: var(--accent); margin-bottom: 8px;"><i class="fa-solid fa-map-location-dot"></i> Ubicación y Cómo Llegar</h3>
+        <p class="text-secondary text-sm" style="margin-bottom: 16px;">
+          Nos encontramos en Malargüe, Mendoza. Haz clic en el botón de abajo para abrir la navegación GPS o ver la ruta recomendada.
+        </p>
+        
+        <!-- Mapa interactivo de Google Maps (Modificar src con tus coordenadas definitivas) -->
+        <div style="width: 100%; height: 280px; border-radius: var(--border-radius); overflow: hidden; border: 1px solid var(--border); margin-bottom: 16px; background-color: rgba(255,255,255,0.02);">
+          <iframe 
+            id="google-map-iframe"
+            src="https://maps.google.com/maps?q=-35.475556,-69.577861&z=16&output=embed" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        
+        <div style="text-align: center;">
+          <a href="#" onclick="irAlAlojamiento(event)" class="btn btn-primary" style="margin: 0; width: 100%; max-width: 250px;">
+            <i class="fa-solid fa-location-arrow"></i> ¿Cómo Llegar? (GPS)
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: CALENDARIO DE RESERVAS -->
+    <section id="calendar-section" class="tab-content">
+      <div class="intro-box">
+        <h2>Disponibilidad y Reservas</h2>
+        <p>Selecciona la fecha de check-in en el calendario de abajo para verificar disponibilidad y realizar tu consulta de alquiler diario.</p>
+      </div>
+
+      <!-- Calendario Interactivo -->
+      <div class="calendar-wrapper card">
+        <div class="calendar-header">
+          <button class="calendar-btn" id="prev-month-btn"><i class="fa-solid fa-chevron-left"></i></button>
+          <h3 id="calendar-month-year">Agosto 2026</h3>
+          <button class="calendar-btn" id="next-month-btn"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div class="calendar-weekdays">
+          <div>Dom</div><div>Lun</div><div>Mar</div><div>Mié</div><div>Jue</div><div>Vie</div><div>Sáb</div>
+        </div>
+        <div class="calendar-days" id="calendar-days-grid">
+          <!-- Se autogenera con JS -->
+        </div>
+        
+        <!-- Notificación Toast integrada -->
+        <div id="calendar-toast-box" class="calendar-toast-box hidden"></div>
+      </div>
+
+      <!-- Leyenda del Calendario -->
+      <div class="calendar-legend" style="display: flex; flex-direction: column; gap: 8px; font-size: 12px; margin-top: 15px; background: rgba(255,255,255,0.02); padding: 12px; border-radius: 8px; border: 1px solid var(--border);">
+        <div style="display: flex; flex-wrap: wrap; gap: 16px;">
+          <span class="legend-item" style="display: inline-flex; align-items: center; gap: 6px;"><span style="display: inline-block; width: 12px; height: 12px; border-radius: 3px; background: #a7f3d0; border: 1px solid rgba(255,255,255,0.15);"></span> Disponible (Hábiles)</span>
+          <span class="legend-item" style="display: inline-flex; align-items: center; gap: 6px;"><span style="display: inline-block; width: 12px; height: 12px; border-radius: 3px; background: #fde68a; border: 1px solid rgba(255,255,255,0.15);"></span> Disponible (Finde / Feriado)</span>
+          <span class="legend-item" style="display: inline-flex; align-items: center; gap: 6px;"><span style="display: inline-block; width: 12px; height: 12px; border-radius: 3px; background: #fca5a5; border: 1px solid rgba(255,255,255,0.15);"></span> Reservado / Ocupado</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 4px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 8px;">
+          <span class="legend-item" style="display: inline-flex; align-items: center; gap: 6px;"><span style="display: inline-block; width: 14px; height: 14px; border-radius: 50%; border: 1.5px dashed #ef4444; background: #dc2626; color: white; font-size: 8px; font-weight: 800; line-height: 1; text-align: center; display: inline-flex; align-items: center; justify-content: center;">F</span> Día Feriado Nacional</span>
+        </div>
+      </div>
+
+      <!-- Detalle de la Fecha Seleccionada -->
+      <div id="day-details-box" class="day-details-box card hidden">
+        <h3 id="selected-day-title">Sábado, 15 de Agosto</h3>
+        
+        <div class="slots-container">
+          <!-- Alquiler por Día Completo -->
+          <div class="slot-row" id="slot-day-row">
+            <div class="slot-info">
+              <span class="slot-name"><i class="fa-solid fa-key"></i> Estadía por Día Completo</span>
+              <span class="slot-time">Check-in: 14:00 hs | Check-out: 10:00 hs (del día siguiente)</span>
+            </div>
+            <div class="slot-action">
+              <span class="badge badge-success" id="slot-day-status">Disponible</span>
+              <button class="btn btn-sm btn-outline-primary" id="slot-day-btn" onclick="openBookingForm('full')">Solicitar Reserva</button>
+            </div>
+          </div>
+          
+          <!-- Fila oculta de Noche para mantener compatibilidad de estilos si fuera necesario -->
+          <div class="slot-row hidden" id="slot-night-row"></div>
+        </div>
+      </div>
+
+      <!-- Modal de Formulario de Reserva -->
+      <div id="booking-modal" class="modal-backdrop hidden">
+        <div class="modal-content card">
+          <div class="modal-header">
+            <h3>Solicitud de Alquiler</h3>
+            <button class="close-btn" onclick="closeBookingModal()"><i class="fa-solid fa-times"></i></button>
+          </div>
+          <form id="booking-form" onsubmit="handleBookingSubmit(event)">
+            <input type="hidden" id="form-date">
+            <input type="hidden" id="form-slot" value="full">
+
+            <div class="form-group">
+              <label>Fecha del Check-in</label>
+              <input type="text" id="form-display-date" readonly class="form-control-readonly">
+            </div>
+
+            <div class="form-group">
+              <label>Tipo de Estadía</label>
+              <input type="text" id="form-display-slot" value="Día Completo (Check-in 14hs / Check-out 10hs)" readonly class="form-control-readonly">
+            </div>
+
+            <div class="form-group">
+              <label for="client-name">Nombre y Apellido <span class="required">*</span></label>
+              <div class="input-wrapper">
+                <i class="fa-regular fa-user"></i>
+                <input type="text" id="client-name" required placeholder="Ej: Pedro Gómez" class="form-control">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="client-phone">Número de WhatsApp <span class="required">*</span></label>
+              <div class="input-wrapper">
+                <i class="fa-brands fa-whatsapp"></i>
+                <input type="tel" id="client-phone" required placeholder="Ej: +54 9 2604 123456" class="form-control">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="client-guests">Cantidad de Huéspedes</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-people-group"></i>
+                <input type="number" id="client-guests" min="1" max="5" value="1" placeholder="Máximo 5 personas" class="form-control">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="client-notes">Mensaje, días adicionales o consultas</label>
+              <div class="input-wrapper">
+                <i class="fa-regular fa-comment"></i>
+                <textarea id="client-notes" placeholder="Ej: Viajamos con un niño. ¿Quisiéramos reservar por 3 noches?" class="form-control" rows="3"></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-success btn-block">
+              <i class="fa-brands fa-whatsapp"></i> Enviar Consulta al Propietario
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: ADMIN (CONTROL) -->
+    <section id="admin-section" class="tab-content">
+      <!-- Formulario Login -->
+      <div id="admin-login-box" class="admin-login-box card">
+        <div class="login-header">
+          <i class="fa-solid fa-shield-halved"></i>
+          <h2>Acceso Propietario</h2>
+          <p>Ingresa la contraseña para gestionar las reservas y el panel de control.</p>
+        </div>
+        <form id="admin-login-form" onsubmit="handleAdminLogin(event)">
+          <div class="form-group">
+            <label for="admin-password">Contraseña</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-lock"></i>
+              <input type="password" id="admin-password" required placeholder="Ingresar contraseña" class="form-control">
+            </div>
+            <span class="error-msg hidden" id="login-error">Contraseña incorrecta.</span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+        </form>
+      </div>
+
+      <!-- Panel Admin (Oculto hasta Login) -->
+      <div id="admin-panel" class="admin-panel hidden">
+        <div class="admin-header-row">
+          <h2>Panel de Administración <span id="admin-install-count-badge" class="badge badge-success" style="font-size: 12px; font-weight: normal; margin-left: 10px; display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; vertical-align: middle; border-radius: 6px;"><i class="fa-solid fa-mobile-screen-button"></i> <span id="admin-install-number">0</span> Instalaciones</span></h2>
+          <button class="btn btn-sm btn-outline-danger" onclick="handleAdminLogout()">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i> Salir
+          </button>
+        </div>
+
+        <!-- Alertas de Reservas Próximas (Check-ins de hoy/mañana) -->
+        <div id="admin-upcoming-alerts" class="hidden" style="margin-bottom: 16px;"></div>
+
+        <!-- 1. Calendario de Reservas -->
+        <div class="card" style="margin-bottom: 16px;">
+          <h3><i class="fa-solid fa-calendar-days"></i> Calendario de Reservas</h3>
+          <p class="text-secondary text-sm">Selecciona una fecha en el calendario para registrar una reserva manual o modificarla:</p>
+          
+          <div class="admin-calendar-wrapper" style="margin-top: 16px;">
+            <div class="calendar-header">
+              <button class="calendar-btn" type="button" id="admin-prev-month-btn"><i class="fa-solid fa-chevron-left"></i></button>
+              <h3 id="admin-calendar-month-year">Agosto 2026</h3>
+              <button class="calendar-btn" type="button" id="admin-next-month-btn"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+            <div class="calendar-weekdays">
+              <div>Dom</div><div>Lun</div><div>Mar</div><div>Mié</div><div>Jue</div><div>Vie</div><div>Sáb</div>
+            </div>
+            <div class="calendar-days" id="admin-calendar-days-grid">
+              <!-- Se autogenera con JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Listado de Reservas -->
+        <div class="card table-card" style="margin-bottom: 16px;">
+          <h3 id="admin-bookings-title"><i class="fa-solid fa-list-check"></i> Listado de Reservas</h3>
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Estadía</th>
+                  <th>Cliente</th>
+                  <th>Total</th>
+                  <th>Seña</th>
+                  <th>Resta</th>
+                  <th>Acción</th>
+                </tr>
+              </thead>
+              <tbody id="admin-bookings-list">
+                <!-- Se inyecta con JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 3. Formulario de Reserva/Edición manual -->
+        <div id="admin-booking-fields-collapsible" class="card admin-booking-fields-collapsible hidden" style="margin-bottom: 16px;">
+          <h4 id="admin-booking-fields-title" style="margin-bottom: 12px; color: var(--accent);"><i class="fa-solid fa-edit"></i> Registrar Nueva Reserva</h4>
+          
+          <form id="admin-reserve-form" onsubmit="handleAdminManualBooking(event)">
+            <!-- Fecha seleccionada oculta -->
+            <input type="hidden" id="admin-date">
+            
+            <div class="grid-form-fields">
+              <div class="form-group">
+                <label for="admin-slot">Tipo de Reserva</label>
+                <select id="admin-slot" class="form-control" required>
+                  <option value="full">Día Completo (Check-in 14hs / Check-out 10hs)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="admin-name">Nombre del Cliente</label>
+                <input type="text" id="admin-name" required placeholder="Ej: Pedro Gómez" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="admin-phone">WhatsApp del Cliente</label>
+                <input type="tel" id="admin-phone" placeholder="Ej: 5492604123456" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="admin-total-price">Precio Total por Estadía ($)</label>
+                <input type="number" id="admin-total-price" required placeholder="Ej: 45000" class="form-control" min="0">
+              </div>
+              <div class="form-group">
+                <label for="admin-deposit">Seña Cobrada ($)</label>
+                <input type="number" id="admin-deposit" required placeholder="Ej: 15000" class="form-control" min="0" value="0">
+              </div>
+              <div class="form-group col-span-2-desktop" style="display: flex; align-items: center; gap: 8px; margin-top: 5px; margin-bottom: 15px;">
+                <input type="checkbox" id="admin-paid-full" onchange="handlePaidFullChange()" style="width: 20px; height: 20px; cursor: pointer; accent-color: var(--success);">
+                <label for="admin-paid-full" style="margin-bottom: 0; cursor: pointer; font-size: 13px; font-weight: 600; color: var(--success);">¿Pago Completo? (Iguala seña al monto total)</label>
+              </div>
+              <div class="form-group col-span-2-desktop">
+                <label for="admin-notes">Notas / Observaciones</label>
+                <textarea id="admin-notes" placeholder="Ej: Reserva por 3 noches. Familia de San Rafael. Seña por transferencia." class="form-control" rows="2" style="resize: vertical;"></textarea>
+              </div>
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap;">
+              <button type="submit" id="admin-submit-btn" class="btn btn-success btn-block" style="margin: 0; flex: 2; min-width: 150px;">Confirmar Reserva</button>
+              <button type="button" id="admin-delete-edit-btn" class="btn hidden" style="margin: 0; padding: 12px 16px; background: linear-gradient(135deg, var(--danger), #b91c1c); color: white; border: none; border-radius: var(--radius-md); font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; font-size: 14px;" onclick="deleteCurrentEditBooking()">
+                <i class="fa-regular fa-trash-can"></i> Cancelar / Borrar Reserva
+              </button>
+              <button type="button" id="admin-cancel-edit-btn" class="btn btn-outline-danger hidden" style="margin: 0; padding: 12px 16px; flex: 1;" onclick="cancelAdminEdit()">Volver</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Resumen Financiero -->
+        <div class="card" style="margin-bottom: 16px;">
+          <h3><i class="fa-solid fa-chart-line"></i> Control de Caja y Ganancias</h3>
+          
+          <div class="finance-filters" style="display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
+            <div class="form-group inline-group">
+              <label for="finance-year">Año:</label>
+              <select id="finance-year" class="form-control form-control-sm" style="width: 100px;" onchange="updateFinanceSummary()">
+                <!-- Se rellena por JS -->
+              </select>
+            </div>
+            <div class="form-group inline-group">
+              <label for="finance-month">Mes:</label>
+              <select id="finance-month" class="form-control form-control-sm" style="width: 150px;" onchange="updateFinanceSummary()">
+                <option value="all">Todo el Año</option>
+                <option value="0">Enero</option>
+                <option value="1">Febrero</option>
+                <option value="2">Marzo</option>
+                <option value="3">Abril</option>
+                <option value="4">Mayo</option>
+                <option value="5">Junio</option>
+                <option value="6">Julio</option>
+                <option value="7">Agosto</option>
+                <option value="8">Septiembre</option>
+                <option value="9">Octubre</option>
+                <option value="10">Noviembre</option>
+                <option value="11">Diciembre</option>
+              </select>
+            </div>
+            <div class="form-group inline-group">
+              <label for="cleaning-cost-input">Costo Limpieza Fijo por Reserva ($):</label>
+              <input type="number" id="cleaning-cost-input" class="form-control form-control-sm" style="width: 110px;" min="0" onchange="saveCleaningCost()">
+            </div>
+          </div>
+          
+          <div class="finance-stats-grid">
+            <div class="stat-card income">
+              <div class="stat-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+              <div class="stat-content">
+                <span class="stat-label">Ingresos Totales</span>
+                <h4 id="stat-total-income">$0</h4>
+              </div>
+            </div>
+            <div class="stat-card expenses">
+              <div class="stat-icon"><i class="fa-solid fa-arrow-trend-down"></i></div>
+              <div class="stat-content">
+                <span class="stat-label">Gastos Totales</span>
+                <h4 id="stat-total-expenses">$0</h4>
+              </div>
+            </div>
+            <div class="stat-card profit">
+              <div class="stat-icon"><i class="fa-solid fa-sack-dollar"></i></div>
+              <div class="stat-content">
+                <span class="stat-label">Ganancia Neta</span>
+                <h4 id="stat-net-profit">$0</h4>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Gráfico de Ganancia Mensual -->
+          <div id="finance-chart-container" style="margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--border);">
+            <h4 style="margin: 0 0 15px 0; font-size: 14px; font-weight: 600; color: var(--text-primary); text-align: center;">
+              <i class="fa-solid fa-chart-column"></i> Evolución Mensual de Ganancia Neta
+            </h4>
+            
+            <div class="chart-canvas" style="display: flex; align-items: flex-end; justify-content: space-between; height: 160px; padding: 10px 0; border-bottom: 2px solid var(--border); position: relative;">
+              <!-- Las barras se inyectan con JS -->
+            </div>
+            <div class="chart-months" style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 10px; font-weight: 600; color: var(--text-secondary); text-align: center;">
+              <span style="flex: 1;">Ene</span>
+              <span style="flex: 1;">Feb</span>
+              <span style="flex: 1;">Mar</span>
+              <span style="flex: 1;">Abr</span>
+              <span style="flex: 1;">May</span>
+              <span style="flex: 1;">Jun</span>
+              <span style="flex: 1;">Jul</span>
+              <span style="flex: 1;">Ago</span>
+              <span style="flex: 1;">Sep</span>
+              <span style="flex: 1;">Oct</span>
+              <span style="flex: 1;">Nov</span>
+              <span style="flex: 1;">Dic</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-admin">
+          <!-- Registrar Gasto -->
+          <div class="card">
+            <h3><i class="fa-solid fa-receipt"></i> <span id="expense-form-title">Registrar Nuevo Gasto</span></h3>
+            <form id="admin-expense-form" onsubmit="handleAdminAddExpense(event)">
+              <input type="hidden" id="expense-edit-id">
+              <div class="form-group">
+                <label for="expense-date">Fecha</label>
+                <input type="date" id="expense-date" required class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="expense-category">Categoría</label>
+                <select id="expense-category" class="form-control" required>
+                  <option value="Limpieza">Limpieza adicional</option>
+                  <option value="Mantenimiento">Mantenimiento (Reparaciones)</option>
+                  <option value="Servicios">Servicios (Luz, Gas, Internet)</option>
+                  <option value="Otros">Otros gastos / Insumos</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="expense-desc">Descripción del Gasto</label>
+                <input type="text" id="expense-desc" required placeholder="Ej: Compra de sábanas nuevas" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="expense-amount">Monto ($)</label>
+                <input type="number" id="expense-amount" required placeholder="Ej: 8500" class="form-control" min="1">
+              </div>
+              <div style="display: flex; gap: 8px; margin-top: 10px;">
+                <button type="submit" id="expense-submit-btn" class="btn btn-primary btn-block" style="flex: 2; margin: 0;">Agregar Gasto</button>
+                <button type="button" id="expense-cancel-edit-btn" class="btn btn-outline-danger hidden" onclick="cancelExpenseEdit()" style="flex: 1; margin: 0; padding: 12px 10px;">Volver</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Configuración de WiFi -->
+          <div class="card" style="margin-bottom: 16px;">
+            <h3><i class="fa-solid fa-wifi"></i> Configuración de WiFi</h3>
+            <p class="text-secondary text-sm" style="margin-bottom: 12px;">
+              Define la red Wi-Fi para tus clientes. Se guardará localmente y se mostrará al cliente.
+            </p>
+            <form id="admin-wifi-form" onsubmit="handleWifiSave(event)" style="display: flex; flex-direction: column; gap: 10px;">
+              <div class="form-group" style="margin: 0;">
+                <label for="admin-wifi-ssid" style="margin-bottom: 4px;">Nombre de Red (SSID)</label>
+                <input type="text" id="admin-wifi-ssid" required placeholder="Ej: MalargueAlSur_WiFi" class="form-control">
+              </div>
+              <div class="form-group" style="margin: 0;">
+                <label for="admin-wifi-pass" style="margin-bottom: 4px;">Contraseña</label>
+                <input type="text" id="admin-wifi-pass" required placeholder="Ej: mendoza2026" class="form-control">
+              </div>
+              <button type="submit" class="btn btn-primary btn-block" style="margin-top: 5px;"><i class="fa-solid fa-floppy-disk"></i> Guardar WiFi</button>
+            </form>
+          </div>
+
+          <!-- Gestión de Sincronización (Supabase / JSON) -->
+          <div class="card">
+            <h3><i class="fa-solid fa-database"></i> Sincronización en la Nube</h3>
+            <p class="text-secondary text-sm">
+              Para tener los datos actualizados automáticamente y poder verlos desde cualquier teléfono, conéctate a Supabase:
+            </p>
+            
+            <div class="sync-options">
+              <!-- Opción Supabase -->
+              <div class="sync-option-card" style="margin-bottom: 12px;">
+                <h4>Base de datos (Supabase)</h4>
+                <form id="supabase-config-form" onsubmit="handleSupabaseSave(event)">
+                  <div class="form-group">
+                    <input type="text" id="sb-url" placeholder="URL del Proyecto Supabase" class="form-control form-control-sm">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" id="sb-key" placeholder="Clave Anon Key de Supabase" class="form-control form-control-sm">
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-sm btn-block">Guardar y Conectar</button>
+                </form>
+              </div>
+
+              <!-- Opción iCal Booking/Airbnb -->
+              <div class="sync-option-card" style="margin-bottom: 12px;">
+                <h4>Sincronización Externa (iCal)</h4>
+                <p class="text-sm">Vincula tus calendarios de Booking o Airbnb para bloquear fechas automáticamente:</p>
+                <form id="ical-config-form" onsubmit="handleIcalSave(event)" style="display: flex; flex-direction: column; gap: 8px; margin-top: 6px;">
+                  <div class="form-group" style="margin: 0;">
+                    <label for="admin-ical-booking" style="margin-bottom: 2px; font-size: 10px;">Enlace iCal de Booking.com</label>
+                    <input type="text" id="admin-ical-booking" placeholder="https://ical.booking.com/..." class="form-control form-control-sm">
+                  </div>
+                  <div class="form-group" style="margin: 0;">
+                    <label for="admin-ical-airbnb" style="margin-bottom: 2px; font-size: 10px;">Enlace iCal de Airbnb</label>
+                    <input type="text" id="admin-ical-airbnb" placeholder="https://www.airbnb.com/calendar/..." class="form-control form-control-sm">
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-sm btn-block">Guardar e Importar Canales</button>
+                </form>
+              </div>
+
+              <!-- Opción Local -->
+              <div class="sync-option-card">
+                <h4>Copia de Respaldo Local</h4>
+                <p class="text-sm">Descarga o importa tu archivo de reservas como respaldo local:</p>
+                <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 6px;">
+                  <button class="btn btn-outline-primary btn-sm btn-block" onclick="downloadBookingsJSON()">
+                    <i class="fa-solid fa-download"></i> Descargar reservas.json
+                  </button>
+                  <button class="btn btn-outline-success btn-sm btn-block" onclick="document.getElementById('import-json-file').click()">
+                    <i class="fa-solid fa-upload"></i> Importar reservas.json
+                  </button>
+                  <input type="file" id="import-json-file" style="display: none;" accept=".json" onchange="handleImportJSON(event)">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Listado de Gastos Históricos -->
+        <div class="card table-card">
+          <div class="card-header-flex">
+            <h3><i class="fa-solid fa-wallet"></i> Historial de Gastos</h3>
+            <div class="btn-group-row">
+              <button class="btn btn-outline-primary btn-xs" onclick="downloadExpensesCSV()" title="Descargar reporte Excel">
+                <i class="fa-solid fa-file-excel"></i> Excel (CSV)
+              </button>
+              <button class="btn btn-outline-primary btn-xs" onclick="downloadExpensesJSON()" title="Descargar datos crudos">
+                <i class="fa-solid fa-download"></i> JSON
+              </button>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Categoría</th>
+                  <th>Descripción</th>
+                  <th>Monto</th>
+                  <th>Acción</th>
+                </tr>
+              </thead>
+              <tbody id="admin-expenses-list">
+                <!-- Se inyecta con JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Barra de Navegación Inferior Móvil -->
+  <nav class="app-nav">
+    <button class="nav-item active" onclick="switchTab('home-section')" id="nav-home-section">
+      <i class="fa-solid fa-house"></i>
+      <span>Inicio</span>
+    </button>
+    <button class="nav-item" onclick="switchTab('calendar-section')" id="nav-calendar-section">
+      <i class="fa-solid fa-calendar-days"></i>
+      <span>Calendario</span>
+    </button>
+    <button class="nav-item hidden" onclick="switchTab('admin-section')" id="nav-nav-admin-section">
+      <i class="fa-solid fa-user-gear"></i>
+      <span>Admin</span>
+    </button>
+  </nav>
+
+  <!-- Modal de Galería de Fotos de Servicios (Lightbox) -->
+  <div id="gallery-modal" class="modal-backdrop hidden" onclick="closeServiceGalleryOnBackdrop(event)">
+    <div class="gallery-modal-content card">
+      <div class="modal-header" style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 8px;">
+        <h3 id="gallery-modal-title" style="margin: 0; color: var(--accent); font-size: 16px;">Galería</h3>
+        <button class="close-btn" onclick="closeServiceGallery()" style="background: transparent; border: none; color: var(--text-primary); font-size: 20px; cursor: pointer;"><i class="fa-solid fa-times"></i></button>
+      </div>
+      
+      <div class="gallery-carousel-container">
+        <button class="gallery-nav-btn prev" onclick="prevGallerySlide()"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="gallery-carousel-track" id="gallery-modal-track">
+          <!-- JS cargará las fotos del servicio -->
+        </div>
+        <button class="gallery-nav-btn next" onclick="nextGallerySlide()"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+      
+      <div class="gallery-indicators" id="gallery-modal-indicators">
+        <!-- Indicadores de foto -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Banner de Instalación PWA para Android/Chrome -->
+  <div id="pwa-install-banner" class="pwa-banner hidden">
+    <div class="pwa-banner-content">
+      <img src="./assets/logo.svg" onerror="this.src='https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=100&q=80'" alt="Malargüe al Sur Logo" class="pwa-banner-logo">
+      <div class="pwa-banner-text">
+        <h4 style="margin:0; font-size:14px; font-weight:600; color:var(--text-primary);">Instalar App de Reservas</h4>
+        <p style="margin:0; font-size:11px; color:var(--text-secondary); line-height:1.3;">Instala el sistema en tu pantalla de inicio para mayor rapidez.</p>
+      </div>
+    </div>
+    <div class="pwa-banner-actions" style="display: flex; gap: 8px; margin-top: 8px;">
+      <button id="pwa-install-accept" class="btn btn-success btn-sm" style="flex: 1; padding: 8px; font-size: 12px; margin: 0;">Instalar</button>
+      <button id="pwa-install-decline" class="btn btn-outline-danger btn-sm" style="flex: 1; padding: 8px; font-size: 12px; margin: 0;">Más tarde</button>
+    </div>
+  </div>
+
+  <!-- Banner Informativo PWA para iOS/Safari (iPhone) -->
+  <div id="pwa-ios-banner" class="pwa-banner hidden">
+    <div class="pwa-banner-content">
+      <img src="./assets/logo.svg" onerror="this.src='https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=100&q=80'" alt="Malargüe al Sur Logo" class="pwa-banner-logo">
+      <div class="pwa-banner-text">
+        <h4 style="margin:0; font-size:14px; font-weight:600; color:var(--text-primary);">Instalar App en tu iPhone</h4>
+        <p style="margin:0; font-size:11px; color:var(--text-secondary); line-height:1.3;">Toca el botón <strong>Compartir</strong> abajo <i class="fa-solid fa-arrow-up-from-bracket"></i> y selecciona <strong>"Agregar a inicio"</strong> <i class="fa-regular fa-square-plus"></i>.</p>
+      </div>
+    </div>
+    <div class="pwa-banner-actions" style="margin-top: 8px;">
+      <button id="pwa-ios-close" class="btn btn-outline-primary btn-sm btn-block" style="width: 100%; padding: 8px; font-size: 12px; margin: 0;">Entendido</button>
+    </div>
+  </div>
+
+  <!-- Modal de Normas de Convivencia -->
+  <div id="rules-modal" class="modal-backdrop hidden" onclick="closeRulesModalOnBackdrop(event)">
+    <div class="gallery-modal-content card" style="max-width: 480px; text-align: center; padding: 20px; position: relative;">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px;">
+        <h3 style="margin: 0; color: var(--accent); font-size: 18px;"><i class="fa-solid fa-scale-balanced"></i> Normas de Convivencia</h3>
+        <button class="close-btn" onclick="closeRulesModal()" style="background: transparent; border: none; color: var(--text-primary); font-size: 20px; cursor: pointer; padding: 0;"><i class="fa-solid fa-times"></i></button>
+      </div>
+      
+      <div style="max-height: 60vh; overflow-y: auto; text-align: left; padding: 10px; background: rgba(0,0,0,0.2); border-radius: 8px; font-size: 13px; line-height: 1.5; color: var(--text-primary);">
+        <h4 style="color: var(--accent); margin-bottom: 8px;">Reglamento General de Estadía</h4>
+        <ol style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px;">
+          <li><strong>Check-in:</strong> A partir de las 14:00 hs. Se requiere DNI o Pasaporte de los huéspedes para el registro.</li>
+          <li><strong>Check-out:</strong> Hasta las 10:00 hs de la mañana. Por favor, respete este horario para permitir la limpieza y preparación para los siguientes huéspedes.</li>
+          <li><strong>Capacidad:</strong> La capacidad máxima es de 5 personas. No se admiten visitas ni pernoctaciones adicionales sin previo aviso y autorización del propietario.</li>
+          <li><strong>Descanso y Ruidos:</strong> Por favor, reduzca el ruido entre las 22:00 hs y las 08:00 hs para garantizar la tranquilidad de los vecinos.</li>
+          <li><strong>Mascotas:</strong> Consultar previamente las condiciones para ingresar con mascotas.</li>
+          <li><strong>Cuidado del Mobiliario:</strong> Mantener el departamento ordenado y cuidar el equipamiento. Cualquier rotura o daño severo deberá ser costeado por el huésped.</li>
+          <li><strong>Prohibido Fumar:</strong> Queda estrictamente prohibido fumar dentro de las habitaciones y espacios comunes cerrados del departamento.</li>
+        </ol>
+        <div style="margin-top: 15px; text-align: center;">
+          <img src="./assets/normas.jpg" onerror="this.style.display='none'" alt="Reglamento de Convivencia" style="display: block; width: 100%; height: auto; border-radius: 8px; margin-top: 10px;">
+        </div>
+      </div>
+      
+      <button class="btn btn-outline-primary btn-block" onclick="closeRulesModal()" style="margin-top: 15px; margin-bottom: 0; width: 100%;">
+        Entendido / Cerrar
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal de WiFi del Alojamiento -->
+  <div id="wifi-modal" class="modal-backdrop hidden" onclick="closeWifiModalOnBackdrop(event)">
+    <div class="gallery-modal-content card" style="max-width: 380px; text-align: center; padding: 24px; position: relative;">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px;">
+        <h3 style="margin: 0; color: var(--accent); font-size: 18px;"><i class="fa-solid fa-wifi"></i> WiFi de los Deptos</h3>
+        <button class="close-btn" onclick="closeWifiModal()" style="background: transparent; border: none; color: var(--text-primary); font-size: 20px; cursor: pointer; padding: 0;"><i class="fa-solid fa-times"></i></button>
+      </div>
+      
+      <div id="wifi-info-box" style="display: flex; flex-direction: column; align-items: center;">
+        <p style="font-size: 14px; margin-bottom: 8px; color: var(--text-secondary);">📶 Red: <strong id="wifi-display-ssid" style="color: var(--text-primary); font-size: 15px;">...</strong></p>
+        <p style="font-size: 14px; margin-bottom: 18px; color: var(--text-secondary);">🔑 Clave: <strong id="wifi-display-pass" style="color: var(--text-primary); font-size: 15px;">...</strong></p>
+        
+        <div style="background: white; padding: 12px; border-radius: 12px; display: inline-block; margin-bottom: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+          <img id="wifi-qr-img" src="" alt="WiFi QR Code" style="display: block; width: 160px; height: 160px; margin: 0 auto; background: #fff;">
+        </div>
+        <p class="text-secondary" style="font-size: 11px; line-height: 1.4; margin: 0;">Escanea el código QR con tu celular para conectarte automáticamente.</p>
+      </div>
+      
+      <div id="wifi-no-config-box" class="hidden" style="padding: 20px 0;">
+        <p class="text-secondary" style="font-size: 13px;">El WiFi aún no ha sido configurado en el panel de administración.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Post-Reserva (WhatsApp / Google Calendar) -->
+  <div id="post-booking-modal" class="modal-backdrop hidden">
+    <div class="gallery-modal-content card" style="max-width: 380px; text-align: center; padding: 24px; position: relative;">
+      <h3 style="margin: 0 0 10px 0; color: var(--success); font-size: 20px; display: inline-flex; align-items: center; justify-content: center; gap: 8px;"><i class="fa-solid fa-circle-check"></i> ¡Reserva Guardada!</h3>
+      <p class="text-secondary text-sm" style="margin-bottom: 20px;">
+        La reserva se guardó y sincronizó correctamente en la nube. ¿Qué deseas hacer ahora?
+      </p>
+      
+      <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 15px;">
+        <!-- Botón de WhatsApp -->
+        <button id="btn-post-booking-wa" class="btn btn-success" style="margin: 0; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; padding: 12px; border-radius: 8px;">
+          <i class="fa-brands fa-whatsapp"></i> Enviar Comprobante WhatsApp
+        </button>
+        
+        <!-- Botón de Google Calendar -->
+        <button id="btn-post-booking-gcal" class="btn btn-outline-success" style="margin: 0; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; padding: 12px; border-radius: 8px; text-decoration: none;">
+          <i class="fa-solid fa-calendar-plus"></i> Guardar Alerta en Celular
+        </button>
+      </div>
+      
+      <button class="btn btn-outline-primary btn-block" onclick="closePostBookingModal()" style="margin: 0; padding: 10px; width: 100%;">
+        Listo, volver al panel
+      </button>
+    </div>
+  </div>
+
+  <!-- Script Principal de la Aplicación -->
+  <script src="app.js"></script>
+</body>
+</html>

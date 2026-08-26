@@ -1,0 +1,38 @@
+[
+  {
+    "date": "2026-08-15",
+    "slot": "full",
+    "name": "Pedro Gomez",
+    "phone": "5492604123456",
+    "totalPrice": 45000,
+    "deposit": 15000,
+    "isEncrypted": false
+  },
+  {
+    "date": "2026-08-16",
+    "slot": "full",
+    "name": "Juan Perez",
+    "phone": "5492604765432",
+    "totalPrice": 40000,
+    "deposit": 40000,
+    "isEncrypted": false
+  },
+  {
+    "date": "2026-08-22",
+    "slot": "full",
+    "name": "Maria Lopez",
+    "phone": "",
+    "totalPrice": 45000,
+    "deposit": 0,
+    "isEncrypted": false
+  },
+  {
+    "date": "2026-08-23",
+    "slot": "full",
+    "name": "Carlos Diaz",
+    "phone": "5492604555555",
+    "totalPrice": 45000,
+    "deposit": 15000,
+    "isEncrypted": false
+  }
+]

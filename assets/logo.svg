@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <!-- Brillo radial premium detrás del logo -->
+    <radialGradient id="goldGlow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#a07647" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#121214" stop-opacity="0" />
+    </radialGradient>
+    <!-- Gradiente de bronce y oro cálido basado exactamente en el color enviado (#a07647) -->
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4b28c" />
+      <stop offset="40%" stop-color="#a07647" />
+      <stop offset="70%" stop-color="#805930" />
+      <stop offset="100%" stop-color="#54381b" />
+    </linearGradient>
+  </defs>
+
+  <!-- Tarjeta de fondo oscuro con bordes redondeados elegantes (Formato Cuadrado) -->
+  <rect width="120" height="120" rx="10" fill="#121214" />
+  <rect width="120" height="120" rx="10" fill="url(#goldGlow)" />
+
+  <!-- Doble anillo dorado exterior con guiones premium -->
+  <circle cx="60" cy="60" r="52" stroke="url(#goldGradient)" stroke-width="2" fill="none" opacity="0.85" />
+  <circle cx="60" cy="60" r="48" stroke="url(#goldGradient)" stroke-width="0.5" stroke-dasharray="2 2" fill="none" opacity="0.7" />
+
+  <!-- Líneas horizontales de base/deck en gris oscuro -->
+  <g stroke="#374151" stroke-width="2" stroke-linecap="round" opacity="0.8">
+    <line x1="38" y1="58" x2="68" y2="58" />
+    <line x1="41" y1="62.5" x2="65" y2="62.5" />
+    <line x1="44" y1="67" x2="61" y2="67" />
+    <line x1="47" y1="71.5" x2="57" y2="71.5" />
+  </g>
+
+  <!-- ICONOGRAFÍA ORIGINAL -->
+  <g fill="url(#goldGradient)">
+    <!-- Silueta del Techo del Quincho con Chimenea -->
+    <path d="M 33 55 L 60 17 L 69 31 L 65 34 L 60 27 L 42 51 L 46 51 L 46 27 L 51 27 L 51 40 Z" />
+    
+    <!-- Onda dinámica de Fuego/Llama fluyendo hacia la derecha -->
+    <path d="M 47 51 C 57 51, 62 60, 72 66 C 84 73, 93 68, 93 54 C 93 38, 83 29, 82 20 C 76 31, 73 38, 78 46 C 81 52, 78 58, 70 57 C 62 56, 56 51, 47 51 Z" />
+  </g>
+
+  <!-- Pequeño arco negro bajo el pico del techo original -->
+  <path d="M 54 34 Q 60 29 66 34" stroke="#121214" stroke-width="2" fill="none" stroke-linecap="round" />
+
+  <!-- TEXTO LINEAL HORIZONTAL (QUINCHO LAS 3R) -->
+  <text x="60" y="82" font-family="'Outfit', 'Inter', 'system-ui', -apple-system, sans-serif" font-weight="700" font-size="7.5" letter-spacing="1" fill="url(#goldGradient)" text-anchor="middle">QUINCHO LAS 3R</text>
+
+  <!-- MONOGRAMA TRIANGULAR DE LAS 3R (Letras unidas físicamente, en el color bronce #a07647) -->
+  <g fill="url(#goldGradient)" fill-rule="evenodd">
+    <!-- R Superior (Centrada y tocando la parte superior de las Rs de abajo) -->
+    <path d="M-6-10 h4 v20 h-4 z M-2-10 h5 c4 0 7 3 7 6.5 c0 3.5-3 6.5-7 6.5 h-5 z M-2-7 h4.5 c2 0 3.5 1 3.5 3.5 c0 2.5-1.5 3.5-3.5 3.5 h-4.5 z M0 3 L 6 10 h4 L 3.5 3 z" transform="translate(59.4, 95.4) scale(0.48)" />
+    
+    <!-- R Inferior Izquierda (Reflejada horizontalmente, fusionando el tallo central con la derecha) -->
+    <path d="M-6-10 h4 v20 h-4 z M-2-10 h5 c4 0 7 3 7 6.5 c0 3.5-3 6.5-7 6.5 h-5 z M-2-7 h4.5 c2 0 3.5 1 3.5 3.5 c0 2.5-1.5 3.5-3.5 3.5 h-4.5 z M0 3 L 6 10 h4 L 3.5 3 z" transform="translate(57.4, 105) scale(-0.48, 0.48)" />
+    
+    <!-- R Inferior Derecha (Normal, fusionando el tallo central con la izquierda) -->
+    <path d="M-6-10 h4 v20 h-4 z M-2-10 h5 c4 0 7 3 7 6.5 c0 3.5-3 6.5-7 6.5 h-5 z M-2-7 h4.5 c2 0 3.5 1 3.5 3.5 c0 2.5-1.5 3.5-3.5 3.5 h-4.5 z M0 3 L 6 10 h4 L 3.5 3 z" transform="translate(62.6, 105) scale(0.48, 0.48)" />
+  </g>
+</svg>
