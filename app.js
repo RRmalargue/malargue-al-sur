@@ -2153,8 +2153,12 @@ async function syncExternalCalendars() {
 
 async function fetchAndParseIcal(rawUrl, channelName) {
   try {
+    // Agregar parámetro de tiempo para evitar respuestas cacheadas
+    const cb = `&_cb=${Date.now()}`;
+    const urlWithCb = rawUrl.includes("?") ? `${rawUrl}${cb}` : `${rawUrl}?${cb}`;
+    
     // Usar proxy CORS gratuito (AllOrigins) para evitar bloqueos del navegador
-    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(rawUrl)}`;
+    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(urlWithCb)}`;
     const response = await fetch(proxyUrl);
     if (!response.ok) throw new Error("HTTP status " + response.status);
     const text = await response.text();
