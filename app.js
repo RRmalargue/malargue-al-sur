@@ -1696,6 +1696,115 @@ function closeWifiModalOnBackdrop(event) {
   }
 }
 
+// --- TURISMO EN MALARGÜE ---
+// Lista de atractivos turísticos configurables libremente
+// Se pueden enlazar videos de YouTube o rutas de videos locales.
+const tourismAttractions = [
+  {
+    title: "La Payunia",
+    description: "Un territorio único en el mundo con más de 800 conos volcánicos, campos de lava negra y paisajes lunares espectaculares. Ideal para realizar excursiones en vehículos 4x4 y avistamiento de fauna autóctona.",
+    image: "./assets/turismo-payunia.jpg",
+    video: "" // Para agregar un video, coloca el enlace aquí (ej: "https://www.youtube.com/watch?v=..." o "./assets/video.mp4")
+  },
+  {
+    title: "Caverna de las Brujas",
+    description: "Una asombrosa caverna subterránea tallada por el agua a lo largo de miles de años. Su interior está decorado con estalactitas y estalagmitas que crean figuras fantásticas. Se recorre obligatoriamente con un guía oficial.",
+    image: "./assets/turismo-brujas.jpg",
+    video: ""
+  },
+  {
+    title: "Valle Hermoso",
+    description: "Ubicado en el corazón de la Cordillera de los Andes, este valle es famoso por sus lagunas de aguas turquesas rodeadas de montañas gigantes. Cuenta con termas naturales, cabalgatas, senderismo y un parador de comidas típicas.",
+    image: "./assets/turismo-valle.jpg",
+    video: ""
+  },
+  {
+    title: "Laguna de la Niña Encantada",
+    description: "Un piletón natural de aguas cristalinas alimentado por ríos subterráneos, rodeado de una antigua colada de lava. Sus leyendas aborígenes y su color verde esmeralda la convierten en una visita obligada camino a Las Leñas.",
+    image: "./assets/turismo-laguna.jpg",
+    video: ""
+  }
+];
+
+function openTourismModal() {
+  const modal = document.getElementById("tourism-modal");
+  const listEl = document.getElementById("tourism-content-list");
+  if (!modal || !listEl) return;
+
+  listEl.innerHTML = "";
+
+  tourismAttractions.forEach(item => {
+    const card = document.createElement("div");
+    // Estilos para las tarjetas de turismo
+    card.style.border = "1px solid var(--border)";
+    card.style.borderRadius = "12px";
+    card.style.background = "var(--bg-primary)";
+    card.style.overflow = "hidden";
+    card.style.display = "flex";
+    card.style.flexDirection = "column";
+    card.style.marginBottom = "8px";
+
+    let mediaHtml = "";
+    if (item.video) {
+      if (item.video.includes("youtube.com") || item.video.includes("youtu.be")) {
+        // Embed de YouTube
+        let embedUrl = item.video;
+        if (item.video.includes("watch?v=")) {
+          const videoId = item.video.split("v=")[1].split("&")[0];
+          embedUrl = `https://www.youtube.com/embed/${videoId}`;
+        } else if (item.video.includes("youtu.be/")) {
+          const videoId = item.video.split("youtu.be/")[1].split("?")[0];
+          embedUrl = `https://www.youtube.com/embed/${videoId}`;
+        }
+        mediaHtml = `
+          <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; width:100%;">
+            <iframe src="${embedUrl}" style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;" allowfullscreen></iframe>
+          </div>
+        `;
+      } else {
+        // Video Local
+        mediaHtml = `
+          <div style="width:100%; background:#000;">
+            <video controls style="width:100%; display:block;" poster="${item.image || ''}">
+              <source src="${item.video}" type="video/mp4">
+              Tu navegador no soporta este reproductor de video.
+            </video>
+          </div>
+        `;
+      }
+    } else if (item.image) {
+      mediaHtml = `
+        <div style="width:100%; height:180px; overflow:hidden; background: var(--bg-secondary);">
+          <img src="${item.image}" onerror="this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80'" style="width:100%; height:100%; object-fit:cover; display:block;" alt="${item.title}">
+        </div>
+      `;
+    }
+
+    card.innerHTML = `
+      ${mediaHtml}
+      <div style="padding: 14px;">
+        <h4 style="color: var(--accent); margin: 0 0 6px 0; font-size: 15px; font-weight:600;">${item.title}</h4>
+        <p class="text-secondary" style="margin: 0; line-height: 1.5; font-size: 12.5px;">${item.description}</p>
+      </div>
+    `;
+    listEl.appendChild(card);
+  });
+
+  modal.classList.remove("hidden");
+}
+
+function closeTourismModal() {
+  document.getElementById("tourism-modal").classList.add("hidden");
+  // Detener la reproducción de cualquier video al cerrar deteniendo y recargando el contenido
+  document.getElementById("tourism-content-list").innerHTML = "";
+}
+
+function closeTourismModalOnBackdrop(event) {
+  if (event.target.id === "tourism-modal") {
+    closeTourismModal();
+  }
+}
+
 // --- NORMAS DE CONVIVENCIA ---
 function openRulesModal() {
   const modal = document.getElementById("rules-modal");

@@ -128,6 +128,20 @@
           </div>
         </div>
 
+        <!-- Turismo en Malargüe -->
+        <div class="service-card" onclick="openTourismModal()">
+          <div class="service-img-wrapper">
+            <img src="./assets/turismo-main.jpg" onerror="this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80'" class="service-img" alt="Turismo en Malargüe">
+          </div>
+          <div class="service-content">
+            <div class="service-header-row">
+              <div class="service-icon" style="background: rgba(14, 165, 233, 0.15); color: var(--accent);"><i class="fa-solid fa-mountain-sun"></i></div>
+              <h4>Turismo en Malargüe</h4>
+            </div>
+            <p>Guía de atractivos locales: La Payunia, Caverna de las Brujas, Valle Hermoso y más.</p>
+          </div>
+        </div>
+
         <!-- Equipamiento -->
         <div class="service-card" onclick="openServiceGallery('equipamiento', 'Equipamiento')">
           <div class="service-img-wrapper">
@@ -859,6 +873,24 @@
       
       <button class="btn btn-outline-primary btn-block" onclick="closePostBookingModal()" style="margin: 0; padding: 10px; width: 100%;">
         Listo, volver al panel
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal de Turismo en Malargüe -->
+  <div id="tourism-modal" class="modal-backdrop hidden" onclick="closeTourismModalOnBackdrop(event)">
+    <div class="gallery-modal-content card" style="max-width: 580px; padding: 24px; position: relative; max-height: 85vh; overflow-y: auto;">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px; position: sticky; top: 0; background: var(--bg-secondary); z-index: 10;">
+        <h3 style="margin: 0; color: var(--accent); font-size: 18px; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-solid fa-mountain-sun"></i> Turismo en Malargüe</h3>
+        <button class="close-btn" onclick="closeTourismModal()" style="background: transparent; border: none; color: var(--text-primary); font-size: 20px; cursor: pointer; padding: 0;"><i class="fa-solid fa-times"></i></button>
+      </div>
+      
+      <div id="tourism-content-list" style="display: flex; flex-direction: column; gap: 16px;">
+        <!-- Se rellenará dinámicamente con JS -->
+      </div>
+      
+      <button class="btn btn-outline-primary btn-block" onclick="closeTourismModal()" style="margin-top: 15px; margin-bottom: 0; width: 100%;">
+        Cerrar Guía Turística
       </button>
     </div>
   </div>
