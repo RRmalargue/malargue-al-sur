@@ -1805,6 +1805,117 @@ function closeTourismModalOnBackdrop(event) {
   }
 }
 
+// --- GUÍA LOCAL Y RECOMENDACIONES (GPS) ---
+// Lista de lugares recomendados configurables
+const recommendedPlaces = [
+  {
+    name: "La Posta Parrilla",
+    description: "Excelente parrilla argentina con carnes de primer nivel, chivito malargüino y muy buenas pastas artesanales. Ambiente familiar y tradicional.",
+    category: "comer",
+    coords: "-35.474668,-69.585721"
+  },
+  {
+    name: "Cervecería Pircas",
+    description: "Cervezas artesanales tiradas de producción local, excelentes picadas, hamburguesas y pizzas. El punto de encuentro ideal para la noche.",
+    category: "cerveza",
+    coords: "-35.472851,-69.584102"
+  },
+  {
+    name: "Café de la Plaza",
+    description: "El lugar perfecto para desayunar o merendar. Café de especialidad, pastelería casera y un ambiente súper cálido frente a la plaza principal.",
+    category: "comer",
+    coords: "-35.475294,-69.586111"
+  },
+  {
+    name: "Observatorio Pierre Auger",
+    description: "Centro científico de renombre mundial que estudia rayos cósmicos. Ofrece visitas guiadas interactivas gratuitas ideales para hacer con la familia.",
+    category: "interes",
+    coords: "-35.483120,-69.587890"
+  },
+  {
+    name: "Criadero de Truchas Cuyam-Co",
+    description: "Ubicado a pocos kilómetros del centro, es un hermoso paseo donde puedes ver el proceso de crianza de truchas y degustar platos frescos en su restaurant.",
+    category: "interes",
+    coords: "-35.534211,-69.591244"
+  }
+];
+
+function openPlacesModal() {
+  const modal = document.getElementById("places-modal");
+  if (!modal) return;
+  modal.classList.remove("hidden");
+  
+  // Renderizar por defecto la categoría 'todos'
+  renderPlaces("todos");
+}
+
+function renderPlaces(categoryFilter) {
+  const listEl = document.getElementById("places-content-list");
+  if (!listEl) return;
+  listEl.innerHTML = "";
+
+  const filtered = categoryFilter === "todos" 
+    ? recommendedPlaces 
+    : recommendedPlaces.filter(p => p.category === categoryFilter);
+
+  if (filtered.length === 0) {
+    listEl.innerHTML = `<p class="text-secondary text-sm" style="text-align:center; padding: 20px;">No hay lugares registrados en esta categoría.</p>`;
+    return;
+  }
+
+  filtered.forEach(place => {
+    const card = document.createElement("div");
+    card.style.border = "1px solid var(--border)";
+    card.style.borderRadius = "12px";
+    card.style.background = "var(--bg-primary)";
+    card.style.padding = "14px";
+    card.style.display = "flex";
+    card.style.flexDirection = "column";
+    card.style.gap = "8px";
+
+    // Icono según la categoría
+    let categoryIcon = "📍";
+    if (place.category === "comer") categoryIcon = "🍴";
+    if (place.category === "cerveza") categoryIcon = "🍺";
+
+    card.innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:8px;">
+        <h4 style="color:var(--text-primary); margin:0; font-size:13.5px; font-weight:600;">${categoryIcon} ${place.name}</h4>
+      </div>
+      <p class="text-secondary" style="margin:0; font-size:12px; line-height:1.4;">${place.description}</p>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=${place.coords}" target="_blank" class="btn btn-outline-primary btn-sm" style="display:inline-flex; align-items:center; justify-content:center; gap:6px; margin:4px 0 0 0; padding:6px 12px; text-decoration:none; font-size:11px; align-self:flex-start; border-radius:8px;">
+        <i class="fa-solid fa-location-arrow"></i> ¿Cómo llegar? (Google Maps)
+      </a>
+    `;
+    listEl.appendChild(card);
+  });
+}
+
+function filterPlaces(category, buttonEl) {
+  // Cambiar estilo de botón activo
+  const buttons = buttonEl.parentNode.querySelectorAll('button');
+  buttons.forEach(btn => {
+    btn.style.background = 'transparent';
+    btn.style.color = 'var(--text-secondary)';
+    btn.style.borderColor = 'var(--border)';
+  });
+  buttonEl.style.background = 'var(--accent)';
+  buttonEl.style.color = '#fff';
+  buttonEl.style.borderColor = 'var(--accent)';
+
+  renderPlaces(category);
+}
+
+function closePlacesModal() {
+  document.getElementById("places-modal").classList.add("hidden");
+}
+
+function closePlacesModalOnBackdrop(event) {
+  if (event.target.id === "places-modal") {
+    closePlacesModal();
+  }
+}
+
 // --- NORMAS DE CONVIVENCIA ---
 function openRulesModal() {
   const modal = document.getElementById("rules-modal");

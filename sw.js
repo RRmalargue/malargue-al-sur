@@ -1,4 +1,4 @@
-const CACHE_NAME = 'malargue-cache-v4';
+const CACHE_NAME = 'malargue-cache-v5';
 const ASSETS = [
   './',
   './index.html',
@@ -14,7 +14,8 @@ const ASSETS = [
   './assets/depto-hab2.jpg',
   './assets/depto-cocina.jpg',
   './assets/mapa_malargue.png',
-  './assets/turismo-main.jpg'
+  './assets/turismo-main.jpg',
+  './assets/guia-local.jpg'
 ];
 
 self.addEventListener('install', (e) => {

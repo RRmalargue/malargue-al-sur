@@ -156,6 +156,20 @@
           </div>
         </div>
 
+        <!-- Guía Local / Lugares Recomendados -->
+        <div class="service-card" onclick="openPlacesModal()">
+          <div class="service-img-wrapper">
+            <img src="./assets/guia-local.jpg" onerror="this.src='https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80'" class="service-img" alt="Guía Local y Gastronomía">
+          </div>
+          <div class="service-content">
+            <div class="service-header-row">
+              <div class="service-icon" style="background: rgba(16, 185, 129, 0.15); color: var(--success);"><i class="fa-solid fa-map-location-dot"></i></div>
+              <h4>Guía Local y Gastronomía</h4>
+            </div>
+            <p>Dónde cenar, cervecerías, cafeterías y puntos de interés locales con GPS.</p>
+          </div>
+        </div>
+
         <!-- Normas de Convivencia -->
         <div class="service-card" onclick="openRulesModal()">
           <div class="service-img-wrapper">
@@ -891,6 +905,32 @@
       
       <button class="btn btn-outline-primary btn-block" onclick="closeTourismModal()" style="margin-top: 15px; margin-bottom: 0; width: 100%;">
         Cerrar Guía Turística
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal de Guía Local (Dónde comer y puntos de interés) -->
+  <div id="places-modal" class="modal-backdrop hidden" onclick="closePlacesModalOnBackdrop(event)">
+    <div class="gallery-modal-content card" style="max-width: 580px; padding: 24px; position: relative; max-height: 85vh; overflow-y: auto;">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 16px; position: sticky; top: 0; background: var(--bg-secondary); z-index: 10;">
+        <h3 style="margin: 0; color: var(--success); font-size: 18px; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-solid fa-map-location-dot"></i> Guía Local y Recomendaciones</h3>
+        <button class="close-btn" onclick="closePlacesModal()" style="background: transparent; border: none; color: var(--text-primary); font-size: 20px; cursor: pointer; padding: 0;"><i class="fa-solid fa-times"></i></button>
+      </div>
+
+      <!-- Filtros / Selector de categorías -->
+      <div class="category-filters" style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); -webkit-overflow-scrolling: touch;">
+        <button class="btn btn-sm" onclick="filterPlaces('todos', this)" style="padding: 6px 12px; font-size: 11px; margin:0; border-radius: 20px; background: var(--accent); color: #fff; border-color: var(--accent);">Todos</button>
+        <button class="btn btn-sm" onclick="filterPlaces('comer', this)" style="padding: 6px 12px; font-size: 11px; margin:0; border-radius: 20px; background: transparent; color: var(--text-secondary); border-color: var(--border);">🍴 Dónde Comer</button>
+        <button class="btn btn-sm" onclick="filterPlaces('cerveza', this)" style="padding: 6px 12px; font-size: 11px; margin:0; border-radius: 20px; background: transparent; color: var(--text-secondary); border-color: var(--border);">🍺 Cervecerías</button>
+        <button class="btn btn-sm" onclick="filterPlaces('interes', this)" style="padding: 6px 12px; font-size: 11px; margin:0; border-radius: 20px; background: transparent; color: var(--text-secondary); border-color: var(--border);">📍 Puntos de Interés</button>
+      </div>
+      
+      <div id="places-content-list" style="display: flex; flex-direction: column; gap: 12px;">
+        <!-- Se rellenará dinámicamente con JS -->
+      </div>
+      
+      <button class="btn btn-outline-primary btn-block" onclick="closePlacesModal()" style="margin-top: 15px; margin-bottom: 0; width: 100%;">
+        Cerrar Guía
       </button>
     </div>
   </div>
