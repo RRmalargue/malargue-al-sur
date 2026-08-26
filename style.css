@@ -2,16 +2,16 @@
    ESTILOS PREMIUM - MALARGUE AL SUR DEPARTAMENTOS
    ======================================================= */
 
-/* Variables del Sistema de Diseño (Temática de Montaña/Sur) */
+/* Variables del Sistema de Diseño (Temática de Glaciar y Lago de Montaña) */
 :root {
-  --bg-primary: #0f1115;      /* Slate oscuro */
-  --bg-secondary: #161920;    /* Card base oscuro */
-  --bg-card: rgba(22, 25, 32, 0.75);
+  --bg-primary: #0a0d16;      /* Azul lago de montaña profundo */
+  --bg-secondary: #121826;    /* Azul medianoche card */
+  --bg-card: rgba(18, 24, 38, 0.8);
   
-  --accent: #d97706;          /* Ámbar/Madera cálido */
-  --accent-hover: #b45309;
-  --accent-light: rgba(217, 119, 6, 0.15);
-  --accent-glow: rgba(217, 119, 6, 0.4);
+  --accent: #0ea5e9;          /* Azul Glaciar / Celeste Premium */
+  --accent-hover: #0284c7;
+  --accent-light: rgba(14, 165, 233, 0.15);
+  --accent-glow: rgba(14, 165, 233, 0.45);
   
   --text-primary: #f3f4f6;    /* Blanco grisáceo */
   --text-secondary: #9ca3af;  /* Gris claro */
