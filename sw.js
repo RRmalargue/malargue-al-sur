@@ -1,4 +1,4 @@
-const CACHE_NAME = 'malargue-cache-v7';
+const CACHE_NAME = 'malargue-cache-v8';
 const ASSETS = [
   './',
   './index.html',
@@ -7,6 +7,7 @@ const ASSETS = [
   './manifest.json',
   './assets/logo.svg',
   './assets/logo.jpg',
+  './assets/logo.png',
   './assets/normas.jpg',
   './assets/depto-main.jpg',
   './assets/depto-living.jpg',
