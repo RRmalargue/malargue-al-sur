@@ -1815,16 +1815,16 @@ const recommendedPlaces = [
     coords: "-35.474668,-69.585721"
   },
   {
-    name: "Cervecería Pircas",
-    description: "Cervezas artesanales tiradas de producción local, excelentes picadas, hamburguesas y pizzas. El punto de encuentro ideal para la noche.",
-    category: "cerveza",
-    coords: "-35.472851,-69.584102"
+    name: "La Faustina",
+    description: "Restaurant a la carta, asado los jueves, consulten por Sushi. El punto de encuentro ideal para la noche.",
+    category: "comer",
+    coords: "-35.472146931365764,-69.57809656910437"
   },
   {
-    name: "Café de la Plaza",
-    description: "El lugar perfecto para desayunar o merendar. Café de especialidad, pastelería casera y un ambiente súper cálido frente a la plaza principal.",
+    name: "Nomade",
+    description: "El lugar perfecto para cenar y tomar algo, a la entrada de Malargue
     category: "comer",
-    coords: "-35.475294,-69.586111"
+    coords: "-35.457588083002406, -69.58571954235764"
   },
   {
     name: "Observatorio Pierre Auger",
