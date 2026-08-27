@@ -1822,7 +1822,7 @@ const recommendedPlaces = [
   },
   {
     name: "Nomade",
-    description: "El lugar perfecto para cenar y tomar algo, a la entrada de Malargue
+    description: "El lugar perfecto para cenar y tomar algo, a la entrada de Malargue.",
     category: "comer",
     coords: "-35.457588083002406, -69.58571954235764"
   },
