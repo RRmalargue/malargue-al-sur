@@ -1723,6 +1723,18 @@ const tourismAttractions = [
     description: "Un piletón natural de aguas cristalinas alimentado por ríos subterráneos, rodeado de una antigua colada de lava. Sus leyendas aborígenes y su color verde esmeralda la convierten en una visita obligada camino a Las Leñas.",
     image: "./assets/turismo-laguna.jpg",
     video: ""
+  },
+  {
+    title: "Castillos Pincheira",
+    description: "Imponentes formaciones rocosas esculpidas por la erosión del viento y el agua que asemejan un gran castillo medieval. Se encuentra a orillas del río Malargüe.",
+    image: ["./assets/castillos.jpg", "./assets/castillos2.jpg"],
+    video: ""
+  },
+  {
+    title: "Volcán Malacara",
+    description: "Un volcán de características únicas cuya erupción hidromagmática dejó increíbles cárcavas y pasadizos de ceniza volcánica que se pueden recorrer por dentro.",
+    image: ["./assets/volcanmalacara.jpg", "./assets/volcanmalacara1.jpg"],
+    video: ""
   }
 ];
 
