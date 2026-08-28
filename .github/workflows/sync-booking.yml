@@ -1,0 +1,24 @@
+name: Sincronizador Automatico de Booking.com
+
+on:
+  schedule:
+    # Se ejecuta cada hora de forma automatica en los servidores de GitHub
+    - cron: '0 * * * *'
+  workflow_dispatch:
+    # Permite activar la sincronizacion de forma manual desde el panel de GitHub
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Descargar codigo del repositorio
+      uses: actions/checkout@v3
+
+    - name: Configurar Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Ejecutar script de sincronizacion
+      run: node import_booking.js
