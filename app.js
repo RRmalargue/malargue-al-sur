@@ -1703,7 +1703,7 @@ const tourismAttractions = [
   {
     title: "La Payunia",
     description: "Un territorio único en el mundo con más de 800 conos volcánicos, campos de lava negra y paisajes lunares espectaculares. Ideal para realizar excursiones en vehículos 4x4 y avistamiento de fauna autóctona.",
-    image: "./assets/turismo-payunia.jpg",
+    image: ["./assets/payunia.jpg", "./assets/payunia1.jpg"],
     video: "" // Para agregar un video, coloca el enlace aquí (ej: "https://www.youtube.com/watch?v=..." o "./assets/video.mp4")
   },
   {
