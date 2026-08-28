@@ -1703,19 +1703,19 @@ const tourismAttractions = [
   {
     title: "La Payunia",
     description: "Un territorio único en el mundo con más de 800 conos volcánicos, campos de lava negra y paisajes lunares espectaculares. Ideal para realizar excursiones en vehículos 4x4 y avistamiento de fauna autóctona.",
-    image: ["./assets/payunia.jpg", "./assets/payunia1.jpg"],
+    image: "./assets/payunia.jpg",
     video: "" // Para agregar un video, coloca el enlace aquí (ej: "https://www.youtube.com/watch?v=..." o "./assets/video.mp4")
   },
   {
     title: "Castillos Pincheira",
     description: "Imponentes formaciones rocosas esculpidas por la erosión del viento y el agua que asemejan un gran castillo medieval. Se encuentra a orillas del río Malargüe.",
-    image: ["./assets/castillos.jpg", "./assets/castillos2.jpg"],
+    image: "./assets/castillos.jpg",
     video: ""
   },
   {
     title: "Volcán Malacara",
     description: "Un volcán de características únicas cuya erupción hidromagmática dejó increíbles cárcavas y pasadizos de ceniza volcánica que se pueden recorrer por dentro.",
-    image: ["./assets/volcanmalacara.jpg", "./assets/volcanmalacara1.jpg"],
+    image: "./assets/volcanmalacara.jpg",
     video: ""
   }
 ];
