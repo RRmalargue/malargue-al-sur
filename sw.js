@@ -1,4 +1,4 @@
-const CACHE_NAME = 'malargue-cache-v15';
+const CACHE_NAME = 'malargue-cache-v16';
 const ASSETS = [
   './',
   './index.html',
@@ -16,7 +16,13 @@ const ASSETS = [
   './assets/depto-cocina.jpg',
   './assets/mapa_malargue.png',
   './assets/turismo-main.jpg',
-  './assets/guia-local.jpg'
+  './assets/guia-local.jpg',
+  './assets/payunia.jpg',
+  './assets/payunia1.jpg',
+  './assets/castillos.jpg',
+  './assets/castillos2.jpg',
+  './assets/volcanmalacara.jpg',
+  './assets/volcanmalacara1.jpg'
 ];
 
 self.addEventListener('install', (e) => {
@@ -63,8 +69,10 @@ self.addEventListener('fetch', (e) => {
         }
         return response;
       })
-      .catch(() => {
-        return caches.match(e.request);
+      .catch(async () => {
+        const cached = await caches.match(e.request);
+        if (cached) return cached;
+        return new Response('Not found', { status: 404 });
       })
   );
 });
