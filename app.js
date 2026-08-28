@@ -1707,24 +1707,6 @@ const tourismAttractions = [
     video: "" // Para agregar un video, coloca el enlace aquí (ej: "https://www.youtube.com/watch?v=..." o "./assets/video.mp4")
   },
   {
-    title: "Caverna de las Brujas",
-    description: "Una asombrosa caverna subterránea tallada por el agua a lo largo de miles de años. Su interior está decorado con estalactitas y estalagmitas que crean figuras fantásticas. Se recorre obligatoriamente con un guía oficial.",
-    image: "./assets/turismo-brujas.jpg",
-    video: ""
-  },
-  {
-    title: "Valle Hermoso",
-    description: "Ubicado en el corazón de la Cordillera de los Andes, este valle es famoso por sus lagunas de aguas turquesas rodeadas de montañas gigantes. Cuenta con termas naturales, cabalgatas, senderismo y un parador de comidas típicas.",
-    image: "./assets/turismo-valle.jpg",
-    video: ""
-  },
-  {
-    title: "Laguna de la Niña Encantada",
-    description: "Un piletón natural de aguas cristalinas alimentado por ríos subterráneos, rodeado de una antigua colada de lava. Sus leyendas aborígenes y su color verde esmeralda la convierten en una visita obligada camino a Las Leñas.",
-    image: "./assets/turismo-laguna.jpg",
-    video: ""
-  },
-  {
     title: "Castillos Pincheira",
     description: "Imponentes formaciones rocosas esculpidas por la erosión del viento y el agua que asemejan un gran castillo medieval. Se encuentra a orillas del río Malargüe.",
     image: ["./assets/castillos.jpg", "./assets/castillos2.jpg"],
