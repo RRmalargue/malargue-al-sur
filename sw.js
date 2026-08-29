@@ -1,4 +1,4 @@
-const CACHE_NAME = 'malargue-cache-v23';
+const CACHE_NAME = 'malargue-cache-v24';
 const ASSETS = [
   './',
   './index.html',
