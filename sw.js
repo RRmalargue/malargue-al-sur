@@ -1,4 +1,4 @@
-const CACHE_NAME = 'malargue-cache-v20';
+const CACHE_NAME = 'malargue-cache-v22';
 const ASSETS = [
   './',
   './index.html',
@@ -6,23 +6,23 @@ const ASSETS = [
   './app.js',
   './manifest.json',
   './assets/logo.svg',
-  './assets/logo.jpg',
+  './assets/logo.webp',
   './assets/logo.png',
-  './assets/normas.jpg',
-  './assets/depto-main.jpg',
-  './assets/depto-living.jpg',
-  './assets/depto-hab1.jpg',
-  './assets/depto-hab2.jpg',
-  './assets/depto-cocina.jpg',
+  './assets/normas.webp',
+  './assets/depto-main.webp',
+  './assets/depto-living.webp',
+  './assets/depto-hab1.webp',
+  './assets/depto-hab2.webp',
+  './assets/depto-cocina.webp',
   './assets/mapa_malargue.png',
-  './assets/turismo-main.jpg',
-  './assets/guia-local.jpg',
-  './assets/payunia.jpg',
-  './assets/payunia1.jpg',
-  './assets/castillos.jpg',
-  './assets/castillos2.jpg',
-  './assets/volcanmalacara.jpg',
-  './assets/volcanmalacara1.jpg'
+  './assets/turismo-main.webp',
+  './assets/guia-local.webp',
+  './assets/payunia.webp',
+  './assets/payunia1.webp',
+  './assets/castillos.webp',
+  './assets/castillos2.webp',
+  './assets/volcanmalacara.webp',
+  './assets/volcanmalacara1.webp'
 ];
 
 self.addEventListener('install', (e) => {

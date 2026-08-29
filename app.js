@@ -1703,19 +1703,19 @@ const tourismAttractions = [
   {
     title: "La Payunia",
     description: "Un territorio único en el mundo con más de 800 conos volcánicos, campos de lava negra y paisajes lunares espectaculares. Ideal para realizar excursiones en vehículos 4x4 y avistamiento de fauna autóctona.",
-    image: "./assets/payunia.jpg",
+    image: "./assets/payunia.webp",
     video: "" // Para agregar un video, coloca el enlace aquí (ej: "https://www.youtube.com/watch?v=..." o "./assets/video.mp4")
   },
   {
     title: "Castillos Pincheira",
     description: "Imponentes formaciones rocosas esculpidas por la erosión del viento y el agua que asemejan un gran castillo medieval. Se encuentra a orillas del río Malargüe.",
-    image: "./assets/castillos.jpg",
+    image: "./assets/castillos.webp",
     video: ""
   },
   {
     title: "Volcán Malacara",
     description: "Un volcán de características únicas cuya erupción hidromagmática dejó increíbles cárcavas y pasadizos de ceniza volcánica que se pueden recorrer por dentro.",
-    image: "./assets/volcanmalacara.jpg",
+    image: "./assets/volcanmalacara.webp",
     video: ""
   }
 ];
@@ -1963,15 +1963,15 @@ function irAlAlojamiento(event) {
 // --- DETECTAR FOTOS DINÁMICAS (CARRUSEL E INSTALACIONES) ---
 async function initCarouselGallery() {
   const defaultSlides = [
-    { url: "./assets/depto-main.jpg", title: "Malargüe al Sur", desc: "Departamentos confortables en el corazón de Malargüe." },
-    { url: "./assets/depto-living.jpg", title: "Estancia Confortable", desc: "Living comedor amplio equipado para 5 personas." }
+    { url: "./assets/depto-main.webp", title: "Malargüe al Sur", desc: "Departamentos confortables en el corazón de Malargüe." },
+    { url: "./assets/depto-living.webp", title: "Estancia Confortable", desc: "Living comedor amplio equipado para 5 personas." }
   ];
 
   const maxPhotos = 12;
   const scanPromises = [];
 
   for (let i = 1; i <= maxPhotos; i++) {
-    const url = `./assets/foto${i}.jpg`;
+    const url = `./assets/foto${i}.webp`;
     scanPromises.push(
       new Promise((resolve) => {
         const img = new Image();
@@ -2042,7 +2042,7 @@ async function openServiceGallery(serviceId, serviceTitle) {
   const scanPromises = [];
   
   for (let i = 1; i <= maxPhotos; i++) {
-    const url = `./assets/${serviceId}${i}.jpg`;
+    const url = `./assets/${serviceId}${i}.webp`;
     scanPromises.push(
       new Promise((resolve) => {
         const img = new Image();
@@ -2057,10 +2057,10 @@ async function openServiceGallery(serviceId, serviceTitle) {
   const validUrls = results.filter(url => url !== null);
   
   if (validUrls.length === 0) {
-    let defaultUrl = "./assets/depto-main.jpg";
-    if (serviceId === "habitaciones") defaultUrl = "./assets/depto-hab1.jpg";
-    if (serviceId === "servicios") defaultUrl = "./assets/depto-living.jpg";
-    if (serviceId === "equipamiento") defaultUrl = "./assets/depto-cocina.jpg";
+    let defaultUrl = "./assets/depto-main.webp";
+    if (serviceId === "habitaciones") defaultUrl = "./assets/depto-hab1.webp";
+    if (serviceId === "servicios") defaultUrl = "./assets/depto-living.webp";
+    if (serviceId === "equipamiento") defaultUrl = "./assets/depto-cocina.webp";
     validUrls.push(defaultUrl);
   }
   
