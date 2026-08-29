@@ -1,4 +1,4 @@
-const CACHE_NAME = 'malargue-cache-v27';
+const CACHE_NAME = 'malargue-cache-v29';
 const ASSETS = [
   './',
   './index.html',
@@ -17,6 +17,7 @@ const ASSETS = [
   './assets/mapa_malargue.png',
   './assets/turismo-main.webp',
   './assets/guia-local.webp',
+  './assets/reloj.webp',
   './assets/payunia.webp',
   './assets/payunia1.webp',
   './assets/castillos.webp',

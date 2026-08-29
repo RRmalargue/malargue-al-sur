@@ -1768,8 +1768,9 @@ function openTourismModal() {
       }
     } else if (item.image) {
       mediaHtml = `
-        <div style="width:100%; height:180px; overflow:hidden; background: var(--bg-secondary);">
-          <img src="${item.image}" onerror="this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80'" style="width:100%; height:100%; object-fit:cover; display:block;" alt="${item.title}">
+        <div style="position: relative; width:100%; height:200px; overflow:hidden; background: var(--bg-secondary);">
+          <img src="${item.image}" onclick="openImageLightbox(this.src)" onerror="this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80'" style="width:100%; height:100%; object-fit:cover; display:block; cursor: zoom-in;" alt="${item.title}">
+          <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.6); color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 10px; pointer-events: none; display: flex; align-items: center; gap: 4px;"><i class="fa-solid fa-magnifying-glass-plus"></i> Ampliar</div>
         </div>
       `;
     }
@@ -1797,6 +1798,20 @@ function closeTourismModalOnBackdrop(event) {
   if (event.target.id === "tourism-modal") {
     closeTourismModal();
   }
+}
+
+// --- LIGHTBOX DE IMAGEN INDIVIDUAL EN PANTALLA COMPLETA ---
+function openImageLightbox(src) {
+  const modal = document.getElementById("image-lightbox-modal");
+  const img = document.getElementById("lightbox-img");
+  if (!modal || !img) return;
+  img.src = src;
+  modal.classList.remove("hidden");
+}
+
+function closeImageLightbox() {
+  const modal = document.getElementById("image-lightbox-modal");
+  if (modal) modal.classList.add("hidden");
 }
 
 // --- GUÍA LOCAL Y RECOMENDACIONES (GPS) ---
